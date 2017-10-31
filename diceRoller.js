@@ -6,23 +6,25 @@
 //LOGIC
 //that number used to roll six sided dice
 function pickNumbers(min,max){
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor((Math.random() * (max-min) + min));
+  var range = max - min;
+  var offset = min;
+  return Math.round((Math.random() * range) + offset);
 }
 
 
 //random function used to generate that many number of numbers
-function rollDice(numofDice){
-  var rolls = [];
- for(i=0; i < numofDice; i++){
-  rolls.push(pickNumbers(1,6));
- }
- return rolls
+function rollDice(numRolls) {
+  var results = [];
+  for (var i = 0; i < numRolls; i++) {
+    results.push(pickNumbers(1,6));
+  }
+  return results;
 }
 
 
 
 //OUTPUT
 //show random numbers
-console.log(rollDice(process.argv[2]));
+var numRolls = process.argv[2];
+var rolledResults = rollDice(numRolls);
+console.log("Rolled", numRolls, "dice:", rolledResults.join(', '));
