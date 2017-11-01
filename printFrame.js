@@ -24,7 +24,9 @@ function longestStr(list) {
   var longest = list[0];
 
   for (str of list) {
-    longest = str;
+    if(str.length > longest.length) {
+      longest = str;
+    }
   }
 
   return longest;
