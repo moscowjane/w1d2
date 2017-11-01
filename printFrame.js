@@ -1,7 +1,7 @@
 function printInFrame(list) {
   var list = list.split(' ');
   var longest = longestStr(list).length;
-  var border = repeat('*', longest);
+  var border = repeat('*', longest + 4);
 
   console.log(border);
   for (word of list) {
